@@ -1,5 +1,7 @@
 {
   "name": "react-lazy-images",
+  "description": "React lazy loading images with Intersection Observer",
+  "author": "baris.esen@trendyol.com",
   "version": "0.1.0",
   "main": "dist/",
   "types": "dist/types/index.d.ts",
