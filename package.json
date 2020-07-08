@@ -15,7 +15,8 @@
     "build-tsc": "tsc",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "cov": "react-scripts test --coverage"
+    "cov": "react-scripts test --coverage",
+    "prettier:fix": " prettier --write src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +43,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/sinon": "^9.0.4",
     "faker": "^4.1.0",
+    "prettier": "2.0.5",
     "sinon": "^9.0.2"
   }
 }

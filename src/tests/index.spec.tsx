@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Lazy from "../index";
 import { LazyLoadProps } from "../interface";
 import faker from "faker";
@@ -20,10 +20,9 @@ describe("Lazy tests", () => {
       placeholder: faker.image.imageUrl(200),
       src: faker.image.imageUrl(300),
       ratio: 0.1,
-      force: false
+      force: false,
     };
-  })
-  
+  });
 
   describe("Not support intersectionObserver environment", () => {
     it("should return image without lazy loading on one image", () => {
@@ -32,9 +31,7 @@ describe("Lazy tests", () => {
 
       // Assert
       expect(container.getElementsByTagName("img").length).toBe(1);
-      expect(container.getElementsByTagName("img")[0].src).toBe(
-        props.src
-      );
+      expect(container.getElementsByTagName("img")[0].src).toBe(props.src);
     });
 
     it("should return image without lazy loading on multiple images", () => {
@@ -48,12 +45,8 @@ describe("Lazy tests", () => {
       );
 
       // Assert
-      expect(container.getElementsByTagName("img")[0].src).toBe(
-        props.src
-      );
-      expect(container.getElementsByTagName("img")[2].src).toBe(
-        props.src
-      );
+      expect(container.getElementsByTagName("img")[0].src).toBe(props.src);
+      expect(container.getElementsByTagName("img")[2].src).toBe(props.src);
     });
   });
 
@@ -95,27 +88,25 @@ describe("Lazy tests", () => {
       const { container } = render(<Lazy {...props} />);
 
       // Assets
-      expect(container.getElementsByTagName("img")[0].src).toBe(
-        props.src
-      );
+      expect(container.getElementsByTagName("img")[0].src).toBe(props.src);
     });
 
     it("should call observer.observe method on img onload event fired", () => {
       // Act
       const { container } = render(<Lazy {...props} />);
-      fireEvent.load(container.getElementsByTagName("img")[0])
-      
+      fireEvent.load(container.getElementsByTagName("img")[0]);
+
       // Assert
       expect(observeStub.calledOnce).toBe(true);
     });
 
     it("should show loaded image on observer intersectionRatio bigger than props.ratio", () => {
       // Arrange
-      const intersectionObeserverSpy = window.IntersectionObserver as unknown as SinonSpy;
+      const intersectionObeserverSpy = (window.IntersectionObserver as unknown) as SinonSpy;
 
       // Act
-      const { container } = render(<Lazy {...props} />)
-      
+      const { container } = render(<Lazy {...props} />);
+
       act(() => {
         intersectionObeserverSpy.getCalls()[0].args[0]([
           {
@@ -123,8 +114,8 @@ describe("Lazy tests", () => {
             isIntersecting: true,
           },
         ]);
-      })
-      
+      });
+
       // Assert
       expect(container.getElementsByTagName("img")[0].src).toBe(props.src);
       expect(disconnectStub.calledOnce).toBe(true);
@@ -132,7 +123,7 @@ describe("Lazy tests", () => {
 
     it("should show placeholder image on observer intersectionRatio bigger than props.ratio & isIntersecting is false", () => {
       // Arrange
-      const intersectionObeserverSpy = window.IntersectionObserver as unknown as SinonSpy;
+      const intersectionObeserverSpy = (window.IntersectionObserver as unknown) as SinonSpy;
 
       // Act
       const { container } = render(<Lazy {...props} />);
@@ -147,13 +138,15 @@ describe("Lazy tests", () => {
       });
 
       // Assert
-      expect(container.getElementsByTagName("img")[0].src).toBe(props.placeholder);
+      expect(container.getElementsByTagName("img")[0].src).toBe(
+        props.placeholder
+      );
       expect(disconnectStub.calledOnce).toBe(false);
     });
 
     it("should call onVisible callback on observer intersectionRatio bigger than props.ratio", () => {
       // Arrange
-      const intersectionObeserverSpy = window.IntersectionObserver as unknown as SinonSpy;
+      const intersectionObeserverSpy = (window.IntersectionObserver as unknown) as SinonSpy;
       props.onVisible = sandbox.stub();
 
       // Act
@@ -172,4 +165,4 @@ describe("Lazy tests", () => {
       expect((props.onVisible as SinonStub).calledOnce).toBe(true);
     });
   });
-})
+});

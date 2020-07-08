@@ -1,4 +1,4 @@
-import { getReturnProps } from "../utils"
+import { getReturnProps } from "../utils";
 import faker from "faker";
 import { LazyLoadProps } from "../interface";
 import sinon from "sinon";
@@ -14,12 +14,12 @@ describe("Utils tests", () => {
       placeholder: faker.random.word(),
       force: true,
       onVisible: sandbox.stub(),
-      src: faker.random.word()
+      src: faker.random.word(),
     };
-    
+
     // Act
-    const returnProps = getReturnProps(props)
-  
+    const returnProps = getReturnProps(props);
+
     // Assert
     expect(returnProps.onVisible).toBeUndefined();
     expect(returnProps.force).toBeUndefined();
