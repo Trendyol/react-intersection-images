@@ -45,7 +45,7 @@ jobs:
                   command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
             - run:
                   name: Publish package
-                  command: npm publish --access=public
+                  command: npm publish
     beta_deploy:
         <<: *defaults
         steps:
@@ -59,7 +59,7 @@ jobs:
                   command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
             - run:
                   name: Publish package
-                  command: npm publish --access=public --tag beta
+                  command: npm publish --tag beta
 
 workflows:
     version: 2
