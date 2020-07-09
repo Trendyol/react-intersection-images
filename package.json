@@ -1,0 +1,49 @@
+{
+  "name": "react-lazy-images",
+  "description": "React lazy loading images with Intersection Observer",
+  "author": "baris.esen@trendyol.com",
+  "version": "0.1.0",
+  "main": "dist/",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
+    "typescript": "^3.9.6"
+  },
+  "scripts": {
+    "build-tsc": "tsc",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "cov": "react-scripts test --coverage",
+    "prettier:fix": " prettier --write src"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.4",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/faker": "^4.1.12",
+    "@types/node": "^14.0.19",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/sinon": "^9.0.4",
+    "faker": "^4.1.0",
+    "prettier": "2.0.5",
+    "sinon": "^9.0.2"
+  }
+}
