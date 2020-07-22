@@ -6,7 +6,7 @@ React lazy load images with IntersectionObserver.
 
 ```js
 import React from 'react';
-import Lazy from "react-lazy-images"
+import Lazy from "react-intersection-images"
 
 const App = () => {
   const placeholder = "https://picsum.photos/id/237/500/300"
