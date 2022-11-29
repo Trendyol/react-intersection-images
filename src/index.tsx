@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { LazyLoadProps } from "./interface";
 import { getReturnProps } from "./utils";
 
-function Lazy(props: LazyLoadProps) {
+function Lazy(props: LazyLoadProps): JSX.Element {
   const returnProps = getReturnProps(props);
 
   const [currentSrc, setCurrentSrc] = useState(
@@ -22,7 +22,7 @@ function Lazy(props: LazyLoadProps) {
     }
   };
 
-  if (!("IntersectionObserver" in window)) {
+  if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
     return <img {...returnProps} />;
   }
 
