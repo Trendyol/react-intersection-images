@@ -8,6 +8,9 @@ jobs:
     test:
         <<: *defaults
         steps:
+            - add_ssh_keys:
+                fingerprints:
+                    - "91:fb:bf:33:f7:8a:b5:9e:99:c1:64:3a:f3:5b:c1:df"
             - checkout
             - restore_cache:
                   keys:
