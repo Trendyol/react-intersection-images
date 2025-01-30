@@ -1,3 +1,5 @@
+
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Trendyol/react-intersection-images/badge)](https://scorecard.dev/viewer/?uri=github.com/Trendyol/react-intersection-images)
 # React Lazy Images
 
 React lazy load images with IntersectionObserver.
